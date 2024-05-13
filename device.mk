@@ -46,12 +46,8 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 # Product characteristics
 PRODUCT_CHARACTERISTICS := default
 
-# Rootdir
+# Ramdisk
 PRODUCT_PACKAGES += \
-    init.insmod.sh \
-
-PRODUCT_PACKAGES += \
-    fstab.enableswap \
     factory_init.connectivity.common.rc \
     factory_init.connectivity.rc \
     factory_init.project.rc \
@@ -76,7 +72,10 @@ PRODUCT_PACKAGES += \
     meta_init.rc \
     meta_init.vendor.rc \
     multi_init.rc \
-    init.recovery.mt6768.rc \
+    fstab.enableswap_4 \
+    fstab.enableswap_8 \
+    fstab.mt6768 \
+    ueventd.qcom.rc \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.enableswap:$(TARGET_VENDOR_RAMDISK_OUT)/first_stage_ramdisk/fstab.enableswap
